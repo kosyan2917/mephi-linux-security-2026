@@ -1,0 +1,58 @@
+    1  groupadd -f students
+    2  useradd -m -u 1234 -G students -s /bin/bash user1
+    3  usermod -u 1234
+    4  usermod -u 1234 user1
+    5  usermod -aG students user1
+    6  ls /home
+    7  ls -la /home
+    8  chmod 700 /home/user1
+    9  chage -M 90 user1
+   10  find / -type f -perm -4000 -print
+   11  passwd user1
+   12  ps -eo pid,ruid,euid,comm,args | awk 'NR == 1 || ($2 >= 1000 && $2 < 65534 && $3 == 0)'
+   13  echo "root only" > /tmp
+   14  echo "root only" > /tmp/root
+   15  rm /tmp/root
+   16  echo "root only" > /tmp/root.txt
+   17  chwon root:root /tmp/root.txt
+   18  chown root:root /tmp/root.txt
+   19  chmod 600 /tmp/root.txt
+   20  sudo -u user1 cat /tmp/root.txt
+   21  cp /usr/bin/cat/ /home/user1/cat-suid
+   22  cp /usr/bin/cat /home/user1/cat-suid
+   23  chown root:root /home/user1/cat-suid 
+   24  chmod 4755 /home/user1/cat-suid 
+   25  sudo -u user1 /home/user1/cat-suid /tmp/root.txt
+   26  cp /usr/bin/chown /home/user/chown-cap
+   27  cp /usr/bin/chown /home/user1/chown-cap
+   28  chown root:root /home/user1/chown-cap 
+   29  chmod 755 /home/user1/chown-cap 
+   30  sudp -u user1 touch /home/user1/owner-test
+   31  sudo -u user1 touch /home/user1/owner-test
+   32  sudo -u user1 chown root /home/user1/owner-test 
+   33  sercap cap_chown=ep /home/user1/chown-cap 
+   34  setcap cap_chown=ep /home/user1/chown-cap 
+   35  getcap /home/user1/chown-cap 
+   36  sudo -u user1 /home/user1/chown-cap root /home/user1/owner-test 
+   37  ls -l /home/user1/owner-test 
+   38  nano visudo
+   39  ды
+   40  ывфывыфвыфв
+   41  history
+   42  EDITOR=nano visudo
+   43  visudo -c
+   44  su user1
+   45  sudo -l -U user1
+   46  EDITOR=nano visudo
+   47  su user1
+   48  history
+   49  stat /home/user1 > ./results/stat.out
+   50  mkdir results
+   51  stat /home/user1 > ./results/stat.out
+   52  stat /home/user1/cat-suid >> ./results/stat.out 
+   53  stat /home/user1/chown-cap >> results/stat.out 
+   54  getcap /home/user1/chown-cap > results/getcap.out
+   55  id user1 > results/user.out
+   56  chage -l user1 >> results/user.out 
+   57  sudo -l -U user1 > results/sudo.out
+   58  history > results/history.out

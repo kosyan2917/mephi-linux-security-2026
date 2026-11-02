@@ -1,0 +1,6 @@
+    PID  RUID  EUID COMMAND         COMMAND
+    967  1000     0 sudo            sudo -i
+    971  1000     0 sudo            sudo -i
+   1433  1000     0 sudo            sudo -i
+   1437  1000     0 sudo            sudo -i
+   1617  1234     0 passwd          passwd
